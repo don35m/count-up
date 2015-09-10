@@ -5,3 +5,19 @@ var countUp = function(multiple, limit) {
   }
   return multiples;
 };
+
+$(document).ready(function() {
+
+  $("form#countUp").submit(function(event) {
+
+    var multiple = parseInt($("input#multiple").val());
+    var limit = parseInt($("input#limit").val());
+
+    var multiples = countUp(multiple, limit);
+
+    $("#multiples").text(multiples.join(", "));
+
+    $("#multiples").show();
+    event.preventDefault();
+  });
+});
